@@ -1,1 +1,1 @@
-Dokumentacija projekta: arhitektura, dijagrami i odluke.
+Project documentation: architecture, diagrams and decisions.
