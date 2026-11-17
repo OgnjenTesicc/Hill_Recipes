@@ -1,0 +1,13 @@
+h2 {
+  color: var(--app-primary);
+  font-weight: 600;
+}
+
+mat-dialog-content {
+  color: var(--app-muted);
+  padding-bottom: 20px;
+}
+
+mat-dialog-actions {
+  gap: 8px;
+}
