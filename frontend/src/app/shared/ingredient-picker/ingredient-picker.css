@@ -1,0 +1,16 @@
+.ingredient-picker {
+  max-width: 450px;
+  padding: 20px;
+  background: var(--app-surface);
+  border-radius: 12px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-chip-row {
+  --mdc-chip-elevated-container-color: #1565c0;
+  --mdc-chip-label-text-color: #ffffff;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: #ffffff;
+}
