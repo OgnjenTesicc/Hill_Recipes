@@ -1,0 +1,1 @@
+Dokumentacija projekta: arhitektura, dijagrami i odluke.

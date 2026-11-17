@@ -1,0 +1,18 @@
+# Node / Angular
+node_modules/
+dist/
+.angular/
+# Java / Maven
+target/
+# IDE
+.idea/
+*.iml
+.vscode/
+# Lokalni fajlovi i lozinke
+.env
+*.env
+application-local.properties
+# Sistem
+.DS_Store
+Thumbs.db
+*.log
