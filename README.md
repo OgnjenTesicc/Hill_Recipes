@@ -1,39 +1,40 @@
-# Recepti
+# Recipes
 
-Timski projekat (MBRS, IKS, ISS): aplikacija za recepte. Klijent je Angular, server je Spring Boot.
+Team project (MBRS, IKS, ISS): a recipes application. The client is built with Angular and the server with Spring Boot.
 
-## Struktura repozitorijuma
-- `frontend` - Angular klijent
+## Repository structure
+- `frontend` - Angular client
 - `backend` - Spring Boot server (Maven)
-- `docs` - dokumentacija, arhitektura, dijagrami
+- `docs` - documentation, architecture, diagrams
 
-## Verzije
+## Versions
 - Java 21
-- Node 22.12 ili novija
-- UI biblioteka: Angular Material
-- Baza: PostgreSQL
+- Node 22.12 or newer
+- UI library: Angular Material
+- Database: PostgreSQL
 
-## Pokretanje
-(upisuju S1-0.1 za frontend i S2-0.2 za backend)
+## Running the project
+(to be added in S1-0.1 for the frontend and S2-0.2 for the backend)
 
-## Grane
-- `main` - samo za kontrolne tačke i odbrane
-- `develop` - glavna grana za rad, podrazumevana
-- `feature/id-kratak-opis` - jedna grana za jednu Trello karticu, npr. `feature/s1-0.1-angular-projekat`
-- `bugfix/id-kratak-opis` - ispravke grešaka
-- Niko ne radi direktno na `develop` ni na `main`.
+## Branches
+- `main` - only for checkpoints and defenses
+- `develop` - main working branch, default
+- `feature/id-short-description` - one branch per Trello card, e.g. `feature/s1-0.1-angular-project`
+- `bugfix/id-short-description` - bug fixes
+- Nobody commits directly to `develop` or `main`.
+- `develop` and `main` are protected: changes only through a pull request with one approval.
 
-## Poruke komita
-Format: `tip: kratak opis` (najviše oko 72 znaka, jedan komit = jedna celina).
-Tipovi: `feat`, `fix`, `refactor`, `docs`, `style`.
-Zabranjeno: "changes", "update", "fix" (samo), "new version", "rad".
+## Commit messages
+Format: `type: short description` (up to about 72 characters, one commit = one logical unit).
+Types: `feat`, `fix`, `refactor`, `docs`, `style`.
+Not allowed: "changes", "update", "fix" (alone), "new version", "work".
 
-## Pull request
-Svaka izmena ide u `develop` preko pull request-a koji pregleda drugi član tima.
-Ognjen pregleda Nikolu, Nikola pregleda Danila, Danilo pregleda Ognjena.
-PR mora da ima link ka Trello kartici, opis izmena i napomenu o problemima.
+## Pull requests
+Every change goes into `develop` through a pull request reviewed by another team member.
+Ognjen reviews Nikola, Nikola reviews Danilo, Danilo reviews Ognjen.
+A PR must contain the Trello card link, a description of changes and a note about problems.
 
-## Tim
+## Team
 - Ognjen Tešić (S1)
 - Nikola Marić (S2), Product Owner
 - Danilo Torbica (S3), Scrum Master
