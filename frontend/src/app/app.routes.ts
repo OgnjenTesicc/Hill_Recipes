@@ -1,8 +1,14 @@
+
 import { Routes } from '@angular/router';
+import { SharedTest } from './pages/shared-test/shared-test';
 import { authGuard } from './core/guards/auth-guard';
 import { adminGuard } from './core/guards/admin-guard';
 
 export const routes: Routes = [
+  {
+    path: 'shared-test',
+    component: SharedTest
+  },
   {
     path: 'auth',
     loadChildren: () =>

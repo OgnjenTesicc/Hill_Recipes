@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --app-primary: #1565c0;
+  --app-secondary: #42a5f5;
+  --app-background: #f5f8fc;
+  --app-surface: #ffffff;
+  --app-text: #263238;
+  --app-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--app-background);
+  color: var(--app-text);
+}

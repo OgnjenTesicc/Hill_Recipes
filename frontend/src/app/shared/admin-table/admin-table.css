@@ -1,0 +1,53 @@
+.admin-table {
+  width: 100%;
+  padding: 20px;
+  background: var(--app-surface);
+  border-radius: 12px;
+}
+
+.search-field {
+  width: 100%;
+  max-width: 400px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  color: var(--app-primary);
+  font-weight: 600;
+}
+
+td, th {
+  padding: 14px 16px;
+}
+
+tr.mat-mdc-row {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  border-bottom-color: #e2e8f0 !important;
+}
+
+@media (max-width: 600px) {
+  mat-paginator {
+    padding: 8px 0;
+  }
+
+  ::ng-deep .mat-mdc-paginator-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
+  }
+
+  ::ng-deep .mat-mdc-paginator-page-size {
+    margin-right: 12px;
+  }
+}

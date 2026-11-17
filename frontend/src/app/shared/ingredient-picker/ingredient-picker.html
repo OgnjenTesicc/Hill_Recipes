@@ -1,0 +1,33 @@
+
+<div class="ingredient-picker">
+  <mat-form-field appearance="outline">
+    <mat-label>Search ingredients</mat-label>
+
+    <input
+      matInput
+      [(ngModel)]="searchValue"
+      [matAutocomplete]="auto"
+      placeholder="Type an ingredient..."
+    />
+
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="addIngredient($event.option.value)"
+    >
+      @for (ingredient of filteredIngredients; track ingredient) {
+        <mat-option [value]="ingredient">
+          {{ ingredient }}
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-chip-set aria-label="Selected ingredients">
+    @for (ingredient of selectedIngredients; track ingredient) {
+      <mat-chip-row (removed)="removeIngredient(ingredient)">
+        {{ ingredient }}
+        <button matChipRemove aria-label="Remove ingredient">×</button>
+      </mat-chip-row>
+    }
+  </mat-chip-set>
+</div>
