@@ -1,8 +1,8 @@
-## Trello kartica
-https://trello.com/b/f04qoNsm/hill-recipes
+## Trello card
+https://trello.com/c/...
 
-## Opis izmena
-(najviše 10 rečenica: šta je urađeno)
+## Description of changes
+(up to 10 sentences: what was done)
 
-## Problemi i nezavršeno
-(najviše 10 rečenica: šta ne radi ili šta ostaje)
+## Problems and unfinished work
+(up to 10 sentences: what does not work or what is left)
