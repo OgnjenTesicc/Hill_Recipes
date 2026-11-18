@@ -31,7 +31,6 @@ Not allowed: "changes", "update", "fix" (alone), "new version", "work".
 
 ## Pull requests
 Every change goes into `develop` through a pull request reviewed by another team member.
-Ognjen reviews Nikola, Nikola reviews Danilo, Danilo reviews Ognjen.
 A PR must contain the Trello card link, a description of changes and a note about problems.
 
 ## Team
