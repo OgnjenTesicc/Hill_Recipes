@@ -1,24 +1,50 @@
 # Backend
 
-Ovo je Spring Boot backend projekta Hill Recipes.
+This is the Spring Boot backend for the Hill Recipes project.
 
-## Tehnologije
+## Technologies
 
 - **Framework:** Spring Boot
 - **Java:** 21
 - **Build tool:** Maven
+- **Database:** PostgreSQL
 
-## Pokretanje aplikacije
+## Database Configuration
 
-Aplikacija se pokreće iz `backend` foldera pomoću Maven Wrapper-a.
+The application uses a PostgreSQL database named `hill_recipes`.
 
-Na Windows-u pokrenuti komandu:
+Before starting the application, make sure PostgreSQL is running and the database has been created.
+
+Set the following environment variable containing your PostgreSQL password:
+
+```powershell
+$env:DB_PASSWORD="your_password"
+```
+
+The database password is read from the `DB_PASSWORD` environment variable and is not stored directly in the application configuration.
+
+## Running the Application
+
+The application can be started from the `backend` folder using the Maven Wrapper.
+
+On Windows, run:
 
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-Nakon uspešnog pokretanja, aplikacija je dostupna na:
+After successful startup, the application is available at:
 
-`http://localhost:8080`
+http://localhost:8080
 
+## Test Endpoint
+
+To verify that the backend is running, open:
+
+http://localhost:8080/api/test
+
+Expected response:
+
+```text
+ok
+```
