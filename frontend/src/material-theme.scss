@@ -8,14 +8,43 @@
 
 html {
   height: 100%;
+  color-scheme: light;
 
   @include mat.theme((
     color: (
-      primary: mat.$blue-palette,
-      tertiary: mat.$azure-palette,
+      primary: mat.$red-palette,
+      tertiary: mat.$green-palette,
+      theme-type: light,
     ),
-    typography: Inter,
+    typography: (
+      plain: Nunito,
+      brand: Nunito,
+      bold: 800,
+      medium: 700,
+      regular: 400,
+    ),
     density: 0,
+  ));
+
+  @include mat.theme-overrides((
+    primary: #b23a1c,
+    on-primary: #ffffff,
+    primary-container: #fbe3d6,
+    on-primary-container: #8f2d14,
+    tertiary: #4f6b2f,
+    on-tertiary: #ffffff,
+    tertiary-container: #e6edd6,
+    on-tertiary-container: #3f5624,
+    error: #b3261e,
+    background: #fff8ef,
+    surface: #fff8ef,
+    on-surface: #2b1d16,
+    on-surface-variant: #6b574b,
+    surface-container-lowest: #ffffff,
+    surface-container-low: #ffffff,
+    surface-container: #fbf1e4,
+    outline: #9a8572,
+    outline-variant: #ebddcb,
   ));
 }
 
@@ -27,4 +56,3 @@ body {
   margin: 0;
   min-height: 100%;
 }
-
