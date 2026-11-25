@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { Activate } from './activate/activate';
+import { Register } from './register/register';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: 'register', component: Register },
+  { path: 'activate', component: Activate }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

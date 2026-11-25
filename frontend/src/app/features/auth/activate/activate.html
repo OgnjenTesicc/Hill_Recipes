@@ -1,0 +1,36 @@
+<div class="split">
+  <section class="panel panel-green panel-spread">
+    <div class="brand"><img src="logo-green.svg" alt="" />Hill Recipes</div>
+    <div class="panel-text">
+      <h1>Napravite svoju <span class="highlight">kuhinju</span> na mreži.</h1>
+      <p>Nalog postaje aktivan kad potvrdite email.</p>
+    </div>
+  </section>
+
+  <main class="side">
+    <div class="box">
+      @switch (state()) {
+        @case ('loading') {
+          <div class="title">
+            <h2>Aktivacija naloga</h2>
+            <p class="lead">Aktiviramo vaš nalog...</p>
+          </div>
+        }
+        @case ('success') {
+          <div class="title">
+            <h2>Nalog je aktiviran</h2>
+            <p class="lead">Vaš nalog je uspešno aktiviran. Sada možete da se prijavite.</p>
+          </div>
+          <a mat-flat-button class="submit" routerLink="/auth/login">Na prijavu</a>
+        }
+        @case ('error') {
+          <div class="title">
+            <h2>Aktivacija nije uspela</h2>
+          </div>
+          <p class="server-error" role="alert">{{ message() }}</p>
+          <a mat-stroked-button class="submit" routerLink="/auth/register">Na registraciju</a>
+        }
+      }
+    </div>
+  </main>
+</div>
