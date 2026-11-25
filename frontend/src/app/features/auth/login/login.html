@@ -1,0 +1,80 @@
+<div class="split">
+  <section class="panel panel-red panel-spread">
+    <div class="brand"><img src="logo.svg" alt="" />Hill Recipes</div>
+    <div class="panel-text">
+      <h1>Vaš lični, digitalni <span class="highlight">kuvar</span>.</h1>
+      <p>
+        Pronađite šta da skuvate od onoga što imate kod kuće, podelite porodične recepte i otkrijte
+        jela iz svih krajeva.
+      </p>
+    </div>
+  </section>
+
+  <main class="side">
+    <div class="box">
+      <div class="title">
+        <h2>Prijava</h2>
+        <p class="lead">Dobro došli nazad.</p>
+      </div>
+
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="field-group">
+          <label for="usernameOrEmail">Korisničko ime ili email</label>
+          <input
+            id="usernameOrEmail"
+            class="field"
+            formControlName="usernameOrEmail"
+            autocomplete="username"
+            [class.invalid]="showError('usernameOrEmail')"
+            [attr.aria-invalid]="showError('usernameOrEmail')"
+          />
+          @if (showError('usernameOrEmail')) {
+            <span class="hint error">Unesite korisničko ime ili email.</span>
+          }
+        </div>
+
+        <div class="field-group">
+          <label for="password">Lozinka</label>
+          <div class="password">
+            <input
+              id="password"
+              class="field"
+              formControlName="password"
+              autocomplete="current-password"
+              [type]="hidePassword() ? 'password' : 'text'"
+              [class.invalid]="showError('password')"
+              [attr.aria-invalid]="showError('password')"
+            />
+            <button
+              class="toggle"
+              type="button"
+              (click)="togglePassword()"
+              [attr.aria-label]="hidePassword() ? 'Prikaži lozinku' : 'Sakrij lozinku'"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" />
+                <circle cx="12" cy="12" r="3" />
+                @if (!hidePassword()) {
+                  <path d="M3 3l18 18" />
+                }
+              </svg>
+            </button>
+          </div>
+          @if (showError('password')) {
+            <span class="hint error">Unesite lozinku.</span>
+          }
+        </div>
+
+        @if (serverError()) {
+          <p class="server-error" role="alert">{{ serverError() }}</p>
+        }
+
+        <button mat-flat-button class="submit" type="submit" [disabled]="submitting()">
+          Prijavi se
+        </button>
+      </form>
+
+      <p class="footer-text">Nemate nalog? <a routerLink="/auth/register">Registrujte se</a></p>
+    </div>
+  </main>
+</div>
