@@ -1,0 +1,152 @@
+<div class="split">
+  <section class="panel panel-green panel-spread">
+    <div class="brand"><img src="logo-green.svg" alt="" />Hill Recipes</div>
+    <div class="panel-text">
+      <h1>Napravite svoju <span class="highlight">kuhinju</span> na mreži.</h1>
+      <p>
+        Nakon registracije šaljemo vam email sa linkom. Nalog postaje aktivan tek kad kliknete na
+        njega.
+      </p>
+    </div>
+  </section>
+
+  <main class="side">
+    <div class="box">
+      @if (registered()) {
+        <div class="title">
+          <h2>Registracija</h2>
+          <p class="lead">Nalog je napravljen.</p>
+        </div>
+        <div class="notice" role="status">
+          <b>Poslali smo vam email</b>
+          <span>
+            Kliknite na link u poruci da aktivirate nalog. Dok ga ne potvrdite, ne možete da se
+            prijavite.
+          </span>
+        </div>
+        <a mat-flat-button class="submit" routerLink="/auth/login">Na prijavu</a>
+      } @else {
+        <div class="title">
+          <h2>Registracija</h2>
+          <p class="lead">Polja označena zvezdicom su obavezna.</p>
+        </div>
+
+        <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="field-group">
+            <label for="username">Korisničko ime *</label>
+            <input
+              id="username"
+              class="field"
+              formControlName="username"
+              autocomplete="username"
+              aria-describedby="username-hint"
+              [class.invalid]="showError('username')"
+              [class.valid]="isConfirmedFree('username')"
+              [attr.aria-invalid]="showError('username')"
+            />
+            @if (showError('username')) {
+              <span id="username-hint" class="hint error">{{ errorFor('username') }}</span>
+            } @else if (form.controls.username.pending) {
+              <span id="username-hint" class="hint">Proveravamo da li je ime slobodno...</span>
+            } @else if (isConfirmedFree('username')) {
+              <span id="username-hint" class="hint ok">Korisničko ime je slobodno.</span>
+            }
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email *</label>
+            <input
+              id="email"
+              class="field"
+              type="email"
+              formControlName="email"
+              autocomplete="email"
+              aria-describedby="email-hint"
+              [class.invalid]="showError('email')"
+              [class.valid]="isConfirmedFree('email')"
+              [attr.aria-invalid]="showError('email')"
+            />
+            @if (showError('email')) {
+              <span id="email-hint" class="hint error">{{ errorFor('email') }}</span>
+            } @else if (form.controls.email.pending) {
+              <span id="email-hint" class="hint">Proveravamo da li je email slobodan...</span>
+            } @else if (isConfirmedFree('email')) {
+              <span id="email-hint" class="hint ok">Email je slobodan.</span>
+            }
+          </div>
+
+          <div class="field-group">
+            <label for="password">Lozinka *</label>
+            <div class="password">
+              <input
+                id="password"
+                class="field"
+                formControlName="password"
+                autocomplete="new-password"
+                aria-describedby="password-hint"
+                [type]="hidePassword() ? 'password' : 'text'"
+                [class.invalid]="showError('password')"
+                [attr.aria-invalid]="showError('password')"
+              />
+              <button
+                class="toggle"
+                type="button"
+                (click)="togglePassword()"
+                [attr.aria-label]="hidePassword() ? 'Prikaži lozinku' : 'Sakrij lozinku'"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" />
+                  <circle cx="12" cy="12" r="3" />
+                  @if (!hidePassword()) {
+                    <path d="M3 3l18 18" />
+                  }
+                </svg>
+              </button>
+            </div>
+            @if (form.controls.password.value) {
+              <div class="strength" aria-hidden="true">
+                @for (bar of strengthBars; track bar) {
+                  <span [class]="barClass(bar)"></span>
+                }
+              </div>
+            }
+            @if (showError('password')) {
+              <span id="password-hint" class="hint error">{{ errorFor('password') }}</span>
+            } @else {
+              <span id="password-hint" class="hint">
+                Najmanje 8 znakova, veliko i malo slovo i broj.
+              </span>
+            }
+          </div>
+
+          <div class="field-group">
+            <label for="confirmPassword">Ponovite lozinku *</label>
+            <input
+              id="confirmPassword"
+              class="field"
+              formControlName="confirmPassword"
+              autocomplete="new-password"
+              aria-describedby="confirm-hint"
+              [type]="hidePassword() ? 'password' : 'text'"
+              [class.invalid]="showError('confirmPassword')"
+              [attr.aria-invalid]="showError('confirmPassword')"
+            />
+            @if (showError('confirmPassword')) {
+              <span id="confirm-hint" class="hint error">{{ errorFor('confirmPassword') }}</span>
+            }
+          </div>
+
+          @if (serverError()) {
+            <p class="server-error" role="alert">{{ serverError() }}</p>
+          }
+
+          <button mat-flat-button class="submit" type="submit" [disabled]="submitting()">
+            Napravi nalog
+          </button>
+        </form>
+
+        <p class="footer-text">Već imate nalog? <a routerLink="/auth/login">Prijavite se</a></p>
+      }
+    </div>
+  </main>
+</div>

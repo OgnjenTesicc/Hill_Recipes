@@ -1,0 +1,284 @@
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  font-family: 'Nunito', system-ui, sans-serif;
+  line-height: 1.4;
+  color: var(--app-text);
+  background: var(--app-background);
+}
+
+.panel {
+  flex: 1 1 420px;
+  min-width: 0;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  color: var(--app-background);
+}
+
+.panel-red {
+  background: var(--app-primary);
+}
+
+.panel-green {
+  background: var(--app-secondary);
+}
+
+.panel-spread .brand,
+.panel-spread .panel-text {
+  margin-bottom: auto;
+}
+
+.panel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 26px;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+}
+
+.panel h1 {
+  margin: 0;
+  max-width: 460px;
+  font-family: var(--app-font-display);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.1;
+}
+
+.panel-red h1 {
+  font-size: 52px;
+  line-height: 1.08;
+}
+
+.panel p {
+  margin: 0;
+  max-width: 460px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.panel-red p {
+  font-size: 18px;
+  color: #fbe3d6;
+}
+
+.panel-green p {
+  color: #e6edd6;
+}
+
+.highlight {
+  color: #f2b75b;
+}
+
+.side {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.box {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.lead {
+  margin: 0;
+  color: var(--app-muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.field {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 2px solid #d9c7b0;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--app-text);
+  font: 600 15px 'Nunito', system-ui, sans-serif;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--app-primary);
+  box-shadow: 0 0 0 3px rgba(178, 58, 28, 0.18);
+}
+
+.field.invalid {
+  border-color: var(--app-error);
+}
+
+.field.valid {
+  border-color: #3f7a3a;
+}
+
+.hint {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--app-muted);
+}
+
+.hint.error {
+  color: var(--app-error);
+}
+
+.hint.ok {
+  color: #3f7a3a;
+}
+
+.password {
+  position: relative;
+}
+
+.password .field {
+  padding-right: 56px;
+}
+
+.toggle {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--app-muted);
+  cursor: pointer;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--app-primary);
+}
+
+.strength {
+  display: flex;
+  gap: 4px;
+}
+
+.strength span {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--app-border);
+}
+
+.strength .strong {
+  background: var(--app-secondary);
+}
+
+.strength .medium {
+  background: var(--app-accent);
+}
+
+.submit {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.server-error {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f6d9d6;
+  color: #8a1c14;
+  font-weight: 700;
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: #fcefd3;
+  color: #6b4400;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.notice b {
+  font-size: 15px;
+  color: var(--app-text);
+}
+
+.footer-text {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--app-muted);
+}
+
+.footer-text a {
+  color: var(--app-primary);
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .panel {
+    padding: 32px 24px;
+  }
+
+  .panel h1,
+  .panel-red h1 {
+    font-size: 34px;
+  }
+}
