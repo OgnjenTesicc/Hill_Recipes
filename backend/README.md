@@ -73,4 +73,32 @@ Expected response:
 
 ```text
 ok
+
 ```
+## Running the Full Application
+
+Registration sends an activation email, so a local mail server is needed.
+
+1. Make sure PostgreSQL is running, the `hill_recipes` database exists and the `DB_PASSWORD` and `JWT_SECRET` environment variables are set (see above).
+2. Download Mailpit from https://github.com/axllent/mailpit/releases (`mailpit-windows-amd64.zip`), extract it and start it:
+
+```powershell
+.\mailpit.exe
+```
+
+   Mailpit receives emails on SMTP port 1025 (the backend is configured for it) and shows them at http://localhost:8025.
+
+3. Start the backend from the `backend` folder:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+4. Start the Angular client from the `frontend` folder (run `npm install` the first time):
+
+```powershell
+npm install
+npm start
+```
+
+5. Open http://localhost:4200, register a user, open the activation link from the email in Mailpit and log in.
