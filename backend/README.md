@@ -23,6 +23,32 @@ $env:DB_PASSWORD="your_password"
 
 The database password is read from the `DB_PASSWORD` environment variable and is not stored directly in the application configuration.
 
+## JWT Configuration
+
+The server signs login tokens (JWT) with a secret key. The key is read from the `JWT_SECRET` environment variable and is not stored in the application configuration.
+
+The value must be a Base64-encoded string of at least 32 bytes. To generate one in PowerShell and set it for the current terminal session:
+
+```powershell
+$b = New-Object byte[] 48
+(New-Object System.Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b)
+$env:JWT_SECRET = [Convert]::ToBase64String($b)
+```
+
+To store it permanently for your user, run this in the same terminal and then restart the terminal (or IntelliJ):
+
+```powershell
+[Environment]::SetEnvironmentVariable("JWT_SECRET", $env:JWT_SECRET, "User")
+```
+
+Tokens are valid for 24 hours (`app.jwt.expiration-ms` in `application.properties`).
+
+## Authentication
+
+- `POST /api/auth/login` accepts `{ "usernameOrEmail": "...", "password": "..." }` and returns `{ "token": "..." }`.
+- Wrong credentials return `401`, a not yet activated account returns `403`.
+- All endpoints except `/api/auth/**` and `/api/test/**` require the header `Authorization: Bearer <token>`.
+
 ## Running the Application
 
 The application can be started from the `backend` folder using the Maven Wrapper.
