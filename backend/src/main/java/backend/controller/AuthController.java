@@ -1,4 +1,8 @@
 package backend.controller;
+import java.util.Map;
+
+import backend.dto.LoginRequest;
+import backend.service.AuthService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +26,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AuthController {
 
     private final UserService userService;
+    private final AuthService authService;
 
-    public AuthController(UserService userService) {
+    public AuthController(UserService userService, AuthService authService) {
     this.userService = userService;
+    this.authService = authService;
     }
 
     @PostMapping("/register")
@@ -34,6 +40,14 @@ public class AuthController {
 
     return ResponseEntity.status(HttpStatus.CREATED)
     .body("Registration successful. Please check your email to activate your account.");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> login(@Valid @RequestBody LoginRequest request) {
+
+    String token = authService.login(request);
+
+    return ResponseEntity.ok(Map.of("token", token));
     }
 
     @GetMapping("/activate")
